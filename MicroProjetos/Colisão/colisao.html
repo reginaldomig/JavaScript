@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colisaõ</title>
+    <style>
+        canvas{
+            border: solid 1px;
+            border-color: black;
+        }
+    </style>
+
+</head>
+<body>
+    <canvas width="600" height="400">
+
+    </canvas>
+    
+
+    <script>
+        // Referencia:
+        //---- https://www.youtube.com/watch?v=k887x45_R4w
+
+        //Criar as Constantes com o Código ASCII das teclas:
+        // 4 contantes na mesma linha
+        const LEFT = 37 , UP = 38 , RIGHT = 39, DOWN = 40
+        const SIZE = 50
+
+        // Posição de Inicio
+        var posX = 50
+        var posY = 50
+        //Recebe Cor RGB - 0f
+        var objColor = "#00f"
+
+        //Criando 4 variáveis com o mesmo valor
+        var mvLeft = mvUp = mvRigh = mvDown = false
+
+        
+        //Associa o Objeto à variável cnv
+        var cnv = document.querySelector("canvas")
+        
+        //Define o Contexto
+        var ctx = cnv.getContext("2d")
+
+        //"Mostra o Contexto":
+        //alert(ctx)
+        
+// ----------------ESSE TRECHO VALE OURO ------------------------------------
+// --------------------------------------------------------------------------
+        //Método que vai "Ouvir" as Ações do Usuário
+        // "Key Down" - Quando eu pressionar alguma coisa
+        document.addEventListener("keydown",keydownHendler,false)
+
+        //Método que vai ser executado quando a tecla for SOLTA
+        document.addEventListener("keyup",keyupHendler,false)
+
+        function keydownHendler(e){
+
+            // mostra a Tecla que foi pressionada
+            // Pode ser utilizada para capturar as teclas
+            //alert(e.keyCode)
+            var key = e.keyCode
+            
+            switch(key){
+                case UP:
+                    mvUp = true
+                    break
+                case DOWN:
+                    mvDown = true
+                    break
+                case LEFT:
+                    mvLeft = true
+                    break
+                case RIGHT:
+                    mvRigh = true
+                    break
+
+            }
+        }
+
+        function keyupHendler(e){
+
+            switch(key){
+                case UP:
+                    mvUp = false
+                    break
+                case DOWN:
+                    mvDown = false
+                    break
+                case LEFT:
+                    mvLeft = false
+                    break
+                case RIGHT:
+                    mvRigh = false
+                    break
+
+            }
+
+        }
+//----------------------------------------------------------------------------
+ 
+
+        function updateBlock(){
+            if(mvLeft){
+                posX--
+            }
+            if(mvRigh){
+                posX++
+            }
+            if(mvUp){
+                posY--
+            }
+            if(mvDown){
+                posY++
+            }
+        }
+
+
+
+        function update(){
+
+            updateBlock()
+
+        }
+
+        function draw(){
+            //Fill Rectagle - Um retângulo preencgido
+            // as variaveis são em pixels(posição, tamanho)
+
+            ctx.fillRect(
+                posX,posY, //posição onde deve começar
+                SIZE,SIZE) //tamanho da forma - x y
+        }
+
+        function loop(){
+            //A Função Loop() será atualizada a 60fps (Frames por Segundo)
+            window.requestAnimationFrame(loop, cnv)
+
+            update()
+            draw()
+
+        }
+
+        //chamar a função Loop pela primeira vez, ela ficará se repetindo
+        loop()
+
+
+
+    </script>
+
+
+</body>
+</html>
