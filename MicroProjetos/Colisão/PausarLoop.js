@@ -1,0 +1,4 @@
+
+
+
+setInterval(moverObjeto, 20)

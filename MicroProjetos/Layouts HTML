@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exemplo de layout com cabeçalho, seções e rodapé</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		header {
+			background-color: #333;
+			color: #fff;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 20px;
+		}
+
+		.logo {
+			font-size: 24px;
+			font-weight: bold;
+			margin: 0;
+		}
+
+		.links {
+			display: flex;
+			align-items: center;
+		}
+
+		.links a {
+			color: #fff;
+			text-decoration: none;
+			padding: 5px;
+			margin-right: 10px;
+			font-size: 16px;
+			font-weight: bold;
+		}
+
+		.section {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+			padding: 20px;
+		}
+
+		.block {
+			width: 30%;
+			height: auto;
+			margin: 10px;
+			background-color: #ccc;
+		}
+
+		.quote {
+			text-align: center;
+			padding: 50px;
+			font-size: 20px;
+			font-style: italic;
+		}
+
+		.image {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 50px;
+		}
+
+		.image img {
+			max-width: 100%;
+			height: auto;
+		}
+
+		.text {
+			padding: 20px;
+			font-size: 16px;
+			line-height: 1.5;
+		}
+
+		.footer {
+			background-color: #333;
+			color: #fff;
+			text-align: center;
+			padding: 20px;
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1 class="logo">Logo</h1>
+		<nav class="links">
+			<a href="#">Link 1</a>
+			<a href="#">Link 2</a>
+			<a href="#">Link 3</a>
+			<a href="#">Link 4</a>
+		</nav>
+	</header>
+	<section class="section">
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+	</section>
+	<section class="section">
+		<div class="quote">"A imaginação é mais importante do que o conhecimento. O conhecimento é limitado. A imaginação envolve o mundo." - Albert Einstein</div>
+	</section>
+	<section class="section">
+		<div class="image">
+			<img src="https://via.placeholder.com/400x300" alt="Imagem">
+		</div>
+		<div class="text">
+			<p>Este é um exemplo de imagem e texto lateral a ela. O texto pode ser formatado com parágrafos, listas, negrito, itálico, etc.</p>
+		</div>
+	</section>
+	<footer class="footer">
+		e-mail: aaaaaaaaa@gmail.com
+	</footer>
+</body>
+</html>

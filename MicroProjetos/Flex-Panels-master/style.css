@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei&display=swap');
+/*@import url("https://fonts.googleapis.com/css?family=Amatic+SC");*/
+html {
+  box-sizing: border-box;
+  background: #ffc600;
+  font-size: 20px;
+  font-weight: 200;
+}
+
+body {
+  margin: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.panels {
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+}
+
+.panel {
+  background: #6B0F9C;
+  box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
+  color: white;
+  text-align: center;
+  align-items: center;
+  /* Safari transitionend event.propertyName === flex */
+  /* Chrome + FF transitionend event.propertyName === flex-grow */
+  transition:
+    font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    background 0.2s;
+  font-size: 20px;
+  background-size: cover;
+  background-position: center;
+  flex: 1; /*each panel takes one fraction unit of the container*/
+  justify-content: center;
+  align-items: center;
+  display: flex; /*.panel is both a flex item of .panels and a flex container*/
+  flex-direction: column;
+}
+
+.panel1 { background-image:url(https://1000mileworld.com/wp-content/uploads/2019/10/mountains.jpg); }
+.panel2 { background-image:url(https://1000mileworld.com/wp-content/uploads/2019/10/ocean.jpg); }
+.panel3 { background-image:url(https://1000mileworld.com/wp-content/uploads/2019/10/horizon-1.jpg); }
+
+/* Flex Children, which are themselves another flex container */
+.panel > div {
+  margin: 0;
+  width: 100%;
+  transition: transform 0.5s;
+  flex: 1; /*flex: flex-grow, flex-shrink, flex-basis*/;
+  display: flex;
+  justify-content: center; /*horizontal center*/
+  align-items: center; /*vertical center*/
+}
+
+.panel > *:first-child {transform: translateY(-100%);}
+.panel.open-active > *:first-child {transform: translateY(0);}
+.panel > *:last-child {transform: translateY(100%);}
+.panel.open-active > *:last-child {transform: translateY(0);}
+
+/*-----------Panel Specifics-------------------*/
+
+.topCenter{position: relative; margin: auto auto 0;}
+.bottomCenter {display: flex; flex-direction: column;}
+.bottomItem {flex: 1; margin: 0; width: 100%;}
+
+/*------------------------------------------------------*/
+
+.panel > div{
+  text-transform: uppercase;
+  font-family: 'ZCOOL XiaoWei', serif;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+  font-size: 2em;
+}
+
+.panel > div:nth-child(2) {
+  font-size: 3em;
+}
+
+.panel.open {
+  flex: 5; /*take up space of 5 fractional units*/
+  font-size: 40px;
+}
+
+
+.content {
+  flex: 3;
+  background-color: #ffffcc;
+  color: black;
+  margin: 2em;
+  padding: 0.5em;
+  border-style: double;
+  border-width: 5px;
+  font-size: 1rem;
+  text-align: left;
+  width: 100%;
+  font-family: Georgia;
+  text-transform: none;
+  text-shadow: none;
+}
+.centerBox {display: flex; flex-direction: column;}
+
+.inputs {text-align: center; margin: auto;}
+
+/*---------------------------CSS Variables--------------------------------*/
+:root{
+      --bcolor: white;
+      --size: 30;
+      --speed: 50;
+    }
+
+/*------------------------Bubbles animation--------------------------------*/
+.bubbles-container {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  width: 100%;
+  max-width: 20rem; /*control size of bubble div*/
+  transform: translateX(-50%);
+  opacity: 0.75;
+  overflow: visible;
+}
+
+.bubbles {
+  width: 100%;
+  height: auto;
+}
+.bubbles circle {
+  stroke: var(--bcolor);
+  fill: none;
+}
+.bubbles-large {
+  overflow: visible;
+}
+
+
+.bubbles-large > g {
+          transform: translateY(2048px);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.bubbles-large g:nth-of-type(1) {
+          animation: up 6.5s infinite;
+}
+.bubbles-large g:nth-of-type(1) g {
+          transform: translateX(350px);
+}
+.bubbles-large g:nth-of-type(1) circle {
+          animation: wobble 3s infinite ease-in-out;
+}
+.bubbles-large g:nth-of-type(2) {
+          animation: up 5.25s 250ms infinite;
+}
+.bubbles-large g:nth-of-type(2) g {
+          transform: translateX(450px);
+}
+.bubbles-large g:nth-of-type(2) circle {
+          animation: wobble 3s infinite ease-in-out;
+}
+.bubbles-large g:nth-of-type(3) {
+          animation: up 6s 750ms infinite;
+}
+.bubbles-large g:nth-of-type(3) g {
+          transform: translateX(700px);
+}
+.bubbles-large g:nth-of-type(3) circle {
+          animation: wobble 3s infinite ease-in-out;
+}
+.bubbles-large g:nth-of-type(4) {
+          animation: up 5.5s 1.5s infinite;
+}
+.bubbles-large g:nth-of-type(4) g {;
+          transform: translateX(500px);
+}
+.bubbles-large g:nth-of-type(4) circle {
+          animation: wobble 3s infinite ease-in-out;
+}
+.bubbles-large g:nth-of-type(5) {;
+          animation: up 6.5s 4s infinite;
+}
+.bubbles-large g:nth-of-type(5) g {
+          transform: translateX(675px);
+}
+.bubbles-large g:nth-of-type(5) circle {
+          animation: wobble 3s infinite ease-in-out;
+}
+
+.bubbles-small {
+  overflow: visible;
+}
+.bubbles-small > g {
+          transform: translateY(2048px);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.bubbles-small g circle {
+          transform: scale(0);
+}
+.bubbles-small g:nth-of-type(1) {
+          animation: up 5.25s infinite;
+}
+.bubbles-small g:nth-of-type(1) g {
+          transform: translateX(350px);
+}
+.bubbles-small g:nth-of-type(1) circle {
+          animation: wobble 3s infinite ease-in-out;
+}
+.bubbles-small g:nth-of-type(2) {
+          animation: up 5.75s infinite;
+}
+.bubbles-small g:nth-of-type(2) g {
+          transform: translateX(750px);
+}
+.bubbles-small g:nth-of-type(2) circle {
+          animation: wobble 3s infinite ease-in-out;
+}
+.bubbles-small g:nth-of-type(3) {
+          animation: up 5.25s 250ms infinite;
+}
+.bubbles-small g:nth-of-type(3) g {
+          transform: translateX(350px);
+}
+.bubbles-small g:nth-of-type(3) circle {
+          animation: wobble 3s 250ms infinite ease-in-out;
+}
+.bubbles-small g:nth-of-type(4) {
+          animation: up 5.75s 325ms infinite;
+}
+.bubbles-small g:nth-of-type(4) g {
+          transform: translateX(180px);
+}
+.bubbles-small g:nth-of-type(4) circle {
+          animation: wobble 3s 325ms infinite ease-in-out;
+}
+.bubbles-small g:nth-of-type(5) {
+          animation: up 6s 125ms infinite;
+}
+.bubbles-small g:nth-of-type(5) g {
+          transform: translateX(350px);
+}
+.bubbles-small g:nth-of-type(5) circle {
+          animation: wobble 3s 250ms infinite ease-in-out;
+}
+.bubbles-small g:nth-of-type(6) {
+          animation: up 5.13s 250ms infinite;
+}
+.bubbles-small g:nth-of-type(6) g {
+          transform: translateX(650px);
+}
+.bubbles-small g:nth-of-type(6) circle {
+          animation: wobble 3s 125ms infinite ease-in-out;
+}
+.bubbles-small g:nth-of-type(7) {
+          animation: up 6.25s 350ms infinite;
+}
+.bubbles-small g:nth-of-type(7) g {
+          transform: translateX(480px);
+}
+.bubbles-small g:nth-of-type(7) circle {
+          animation: wobble 3s 325ms infinite ease-in-out;
+}
+.bubbles-small g:nth-of-type(8) {
+          animation: up 7s 200ms infinite;
+}
+.bubbles-small g:nth-of-type(8) g {
+          transform: translateX(330px);
+}
+.bubbles-small g:nth-of-type(8) circle {
+          animation: wobble 3s 325ms infinite ease-in-out;
+}
+.bubbles-small g:nth-of-type(9) {
+          animation: up 6.25s 233ms infinite;
+}
+.bubbles-small g:nth-of-type(9) g {
+          transform: translateX(230px);
+}
+.bubbles-small g:nth-of-type(9) circle {
+          animation: wobble 3s 275ms infinite ease-in-out;
+}
+.bubbles-small g:nth-of-type(10) {
+          animation: up 6s 900ms infinite;
+}
+.bubbles-small g:nth-of-type(10) g {
+          transform: translateX(730px);
+}
+.bubbles-small g:nth-of-type(10) circle {
+          animation: wobble 2s 905ms infinite ease-in-out;
+}
+
+@keyframes wobble {
+  33% {
+            transform: translateX(-50px);
+  }
+  66% {
+            transform: translateX(50px);
+  }
+}
+@keyframes up {
+  0% {
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+            transform: translateY(-1024px);
+  }
+}

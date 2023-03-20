@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exemplo de layout com gráficos de pizza</title>
+	<style>
+		body {
+			background-color: yellow;
+		}
+
+		.header {
+			background-color: black;
+			height: 100px;
+		}
+
+		.container {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			margin: 20px;
+			box-shadow: 1px 1px 5px grey;
+		}
+
+		.chart {
+			width: 30%;
+			height: 300px;
+			background-color: white;
+			margin: 10px;
+			box-shadow: 1px 1px 5px grey;
+		}
+	</style>
+</head>
+<body>
+	<div class="header"></div>
+	<div class="container">
+		<div class="chart"></div>
+		<div class="chart"></div>
+		<div class="chart"></div>
+	</div>
+</body>
+</html>

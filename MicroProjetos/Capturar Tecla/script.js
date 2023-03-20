@@ -12,6 +12,7 @@ Portanto, esse comando é usado para capturar e lidar com eventos de teclado
 em um documento HTML usando JavaScript.
 */
 
+//Target.AdicionaEventoDeEscuta(evento,função a ser executada, rodar só no contexto)
 window.addEventListener("keydown",KeydownHandler,false)
 
 //lista que vai receber as Teclas Criptografadas

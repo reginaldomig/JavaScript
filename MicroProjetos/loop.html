@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript em Loop</title>
+</head>
+<body>
+
+    <h1 id="res">Resultado</h1>
+    <button onclick="adicionar()">Adicionar</button>
+    <button onclick="remover()">Remover</button>
+    <button onclick="limpar()">Limpar</button>
+
+
+
+    <script>
+
+        var txt = window.document.getElementById('res')
+        var i = 0
+        var lista = []
+        
+        //Isso aqui já faz o Loop a cada 2 segundos
+        setInterval(contar, 2000)
+
+        function contar(){
+
+            window.document.getElementById('res').innerText = i
+            i += 1
+
+        }
+
+      
+        function adicionar(){
+
+            lista.push('Entrei')
+            txt.innerHTML = lista
+            
+        }
+
+        function remover(){
+            txt.innerHTML = lista
+            lista.pop()
+        }
+
+        function limpar() {
+            lista = []
+            txt.innerHTML = lista
+
+        }
+
+        
+
+    </script>
+    
+
+</body>
+</html>

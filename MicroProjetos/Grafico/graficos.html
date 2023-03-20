@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico - Chart.Js</title>
+    <style>
+        #chart1{
+
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            
+        }
+
+        #chart2{
+
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+  
+    </style>
+
+</head>
+<body>
+    <h1>Gráficos - Chart.Js</h1><br>
+    <div id="chart1">
+        
+        <canvas id="myChart"></canvas>
+ 
+    </div id="chart2">
+        <canvas id="myChart2"></canvas>
+        
+    <div>
+
+    </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+      <script>
+        const ctx = document.getElementById('myChart');
+        const ctx2 = document.getElementById('myChart2');
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Theodora', 'Giovana', 'Arthur', 'Isabela', 'Milena'],
+            datasets: [{
+              label: '# Numero de Votos',
+              data: [120, 90, 84, 50, 70],
+              borderWidth: 0
+            }]
+          },
+          options: {
+           
+            scales: {
+              y: {
+                beginAtZero: true
+                
+              }
+            }
+
+          }
+        });
+
+        new Chart(ctx2,{
+            type: "pie",
+            data: {
+                labels: ["Maria","Jose"],
+                    datasets: [{
+                        label: "Gráfico 2",
+                        data: [23,45],
+                        borderWidth: 1
+                }]
+            },
+            
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            
+        })
+
+
+
+      </script>
+      
+       
+      
+       
+    
+</body>
+</html>
