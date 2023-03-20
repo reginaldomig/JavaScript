@@ -1,13 +1,15 @@
-var tabuada = 7
-var porQuanto = 0
+var hora = new Date().getHours()
 
-var contador = 11
-
-
-while (contador > 0){
-    res = tabuada * porQuanto
-    console.log(`${tabuada} X ${porQuanto} = ${res}`)
-    contador = contador -1
-    porQuanto = porQuanto +1
+if (hora >= 0 && hora <=12) {
+   console.log("Bom dia!") 
+   hora = hora +1
 }
 
+if (hora >=12 && hora <18) {
+    console.log("Boa tarde!")
+    hora = hora +1
+}
+if (hora >=18) {
+    console.log("Boa noite!")
+    hora = hora +1
+}
